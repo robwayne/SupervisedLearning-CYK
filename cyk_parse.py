@@ -118,11 +118,11 @@ def cyk_parse(sentence, grammar):
     return (P,n)
 
 
-if __name__ == "__main__":
-    grammar = read_grammar() #Reads and parses the grammar from file.
-    with open("input/cyk_sentences.txt", "r") as fp:
-        for line in fp:
-            parse_chart, num_words = cyk_parse(line, grammar)
-            print("Sentence: %s\nParse Tree: "%line)
-            parse_chart.printChart(num_words)
-            print("-------------------------------------------------------------------\n")
+# if __name__ == "__main__":
+#     grammar = read_grammar() #Reads and parses the grammar from file.
+#     with open("input/cyk_sentences.txt", "r") as fp:
+#         for line in fp:
+#             parse_chart, num_words = cyk_parse(line, grammar)
+#             print("Sentence: %s\nParse Tree: "%line)
+#             parse_chart.printChart(num_words)
+#             print("-------------------------------------------------------------------\n")
