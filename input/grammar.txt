@@ -1,0 +1,11 @@
+S -> Noun VP [1.000000]
+VP -> Verb Noun [0.400000]
+VP -> Modal Verb [0.600000]
+
+Modal -> can [1.000000]
+Noun -> people [0.428571]
+Noun -> fish [0.428571]
+Noun -> can [0.142857]
+Verb -> people [0.600000]
+Verb -> fish [0.200000]
+Verb -> can [0.200000]
