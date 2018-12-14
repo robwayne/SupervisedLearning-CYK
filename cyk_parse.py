@@ -2,7 +2,7 @@ from get_grammar import read_grammar
 
 #Creates a (Tree) Node for each nonterminal, with respect to the word in the sentence
 class Node:
-    def __init__(self, nonterm=None, start=None, end=None, word=None, left_node=None, right_Node=None, probability=0):
+    def __init__(self, nonterm=None, start=None, end=None, word=None, left_node=None, right_Node=None, probability=1e-5):
         self.nonterm = nonterm
         self.start_phrase = start
         self.end_phrase = end
@@ -35,6 +35,7 @@ class Chart:
     def __getitem__(self, key):
         nonterminal_pos,first_index, second_index = key
         return self.data[nonterminal_pos][first_index][second_index]
+
 
     # Allows for the 3-indexing of the data structure, overrides the [] operator
     def __setitem__(self, key, value):
