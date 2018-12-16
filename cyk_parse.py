@@ -97,7 +97,7 @@ def cyk_parse(sentence, grammar):
             if wrule.p_nont != word:
                 continue
             else:
-                P[wrule.pos, i,i] = Node(wrule.pos, i, i, word, None, None, wrule.prob)
+                P[wrule.pos,i,i] = Node(wrule.pos, i, i, word, None, None, wrule.prob)
 
     '''
     Loops O(N^3) times calculating the maximum probability of each word in the sentence based on it's previously created
@@ -107,7 +107,7 @@ def cyk_parse(sentence, grammar):
         for i in range(n-length):
             j = i + length  # type: int
             for nonterm in grammar.get_rules():
-                P[nonterm.p_nont, i, j] = Node(nonterm.p_nont, i, j, None, None, None, 0)
+                P[nonterm.p_nont, i, j] = Node(nonterm.p_nont, i, j, None, None, None)
                 for k in range(i, j):
                     for nrule in grammar.nonterminal_rules:
                         new_prob = P[nrule.fnonterm, i, k].prob * P[nrule.snonterm, k+1, j].prob * nrule.prob
@@ -119,11 +119,11 @@ def cyk_parse(sentence, grammar):
     return (P,n)
 
 
-# if __name__ == "__main__":
-#     grammar = read_grammar() #Reads and parses the grammar from file.
-#     with open("input/cyk_sentences.txt", "r") as fp:
-#         for line in fp:
-#             parse_chart, num_words = cyk_parse(line, grammar)
-#             print("Sentence: %s\nParse Tree: "%line)
-#             parse_chart.printChart(num_words)
-#             print("-------------------------------------------------------------------\n")
+if __name__ == "__main__":
+    grammar = read_grammar() #Reads and parses the grammar from file.
+    with open("input/cyk_sentences.txt", "r") as fp:
+        for line in fp:
+            parse_chart, num_words = cyk_parse(line, grammar)
+            print("Sentence: %s\nParse Tree: "%line)
+            parse_chart.printChart(num_words)
+            print("-------------------------------------------------------------------\n")

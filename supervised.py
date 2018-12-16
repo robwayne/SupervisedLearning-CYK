@@ -83,7 +83,7 @@ def train(sentences, verbose):
     def write_grammar(grammar, file='input/grammar.txt'):
         with open(file, 'w+') as fp:
             k = len(grammar[1])
-            grammar[0].sort(key=lambda x: x.startswith('* S'))
+            grammar[0].sort(key=lambda x: x.strip()[1:].startswith('S'))
             if verbose: # if the program was called with verbose flag, print all the run time messages
                 print("\nGrammar")
             for line in grammar[0]:
